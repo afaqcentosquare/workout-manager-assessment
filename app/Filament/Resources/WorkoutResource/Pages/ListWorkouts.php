@@ -10,6 +10,11 @@ class ListWorkouts extends ListRecords
 {
     protected static string $resource = WorkoutResource::class;
 
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
     protected function getHeaderActions(): array
     {
         return [
