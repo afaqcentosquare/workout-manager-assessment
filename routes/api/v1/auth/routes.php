@@ -1,6 +1,5 @@
 <?php
 
-use App\Enums\TokenAbility;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
 use App\Http\Controllers\Api\V1\Auth\LogoutController;
 use App\Http\Controllers\Api\V1\Auth\RegisterController;

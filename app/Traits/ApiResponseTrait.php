@@ -59,15 +59,6 @@ trait ApiResponseTrait
         ], 401);
     }
 
-    public function sendResponsePaymentRequired(string $message = 'Payment Required'): JsonResponse
-    {
-        return response()->json([
-            'isSuccessful' => false,
-            'status' => 402,
-            'message' => $message
-        ], 402);
-    }
-
     public function sendResponseForbidden(string $message = 'Access Not Allowed'): JsonResponse
     {
         return response()->json([

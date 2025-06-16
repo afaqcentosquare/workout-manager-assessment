@@ -24,6 +24,8 @@ class Workout extends Model
     {
         return [
             'is_active' => 'boolean',
+            'date' => 'datetime',
+            'slots' => 'integer',
         ];
     }
 
