@@ -24,7 +24,7 @@ class RegisterController extends Controller
     public function __invoke(RegisterRequest $request): JsonResponse
     {
         try {
-            $user = $this->authenticationService->register($request);
+            $user = $this->authenticationService->register($request->validated());
 
             $result = new UserResource($user);
             return $this->sendResponseCreated('User Registered Successfully', $result);

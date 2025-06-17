@@ -33,4 +33,12 @@ class Workout extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeSearch($query, $term)
+    {
+        return $query->when($term, function ($query, $term) {
+            $query->where('title', 'like', '%' . $term . '%')
+                ->orWhere('trainer', 'like', '%' . $term . '%');
+        });
+    }
 }

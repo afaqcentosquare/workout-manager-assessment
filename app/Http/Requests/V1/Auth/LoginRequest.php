@@ -14,7 +14,15 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email'],
+            'email' => [
+                'required',
+                'email',
+                function ($attribute, $value, $fail) {
+                    if (strtolower($value) === 'admin@example.com') {
+                        $fail('The email address admin@example.com is not allowed.');
+                    }
+                }
+            ],
             'password' => ['required']
         ];
     }

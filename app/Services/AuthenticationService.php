@@ -2,17 +2,12 @@
 
 namespace App\Services;
 
-use App\Http\Requests\V1\Auth\RegisterRequest;
 use App\Models\User;
 
 class AuthenticationService
 {
-    public function register(RegisterRequest $request): User
+    public function register(array $data): User
     {
-        return User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
+        return User::create($data);
     }
 }

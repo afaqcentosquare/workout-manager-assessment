@@ -26,7 +26,7 @@ class UpdateWorkoutController extends Controller
     public function __invoke(UpdateWorkoutRequest $request, Workout $workout)
     {
         try {
-            $isUpdated = $this->workoutService->update($request, $workout);
+            $isUpdated = $this->workoutService->update($request->validated(), $workout);
 
             if ($isUpdated) {
                 return $this->sendResponseOk('Workout updated successfully');

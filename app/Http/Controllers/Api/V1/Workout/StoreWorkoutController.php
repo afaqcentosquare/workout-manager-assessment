@@ -8,7 +8,6 @@ use App\Http\Resources\V1\Workout\WorkoutResource;
 use App\Services\WorkoutService;
 use App\Traits\ApiResponseTrait;
 use Exception;
-use Illuminate\Http\Request;
 
 class StoreWorkoutController extends Controller
 {
@@ -27,7 +26,7 @@ class StoreWorkoutController extends Controller
     public function __invoke(StoreWorkoutRequest $request)
     {
         try {
-            $workout = $this->workoutService->store($request);
+            $workout = $this->workoutService->store($request->validated());
 
             $result = new WorkoutResource($workout);
             return $this->sendResponseCreated('Workout created successfully', $result);

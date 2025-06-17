@@ -17,7 +17,7 @@ class UpdateWorkoutRequest extends FormRequest
             'title' => ['required', 'string', 'min:3', 'max:255'],
             'description' => ['required', 'string', 'min:3', 'max:255'],
             'trainer' => ['required', 'string', 'min:3', 'max:50'],
-            'date' => ['required', 'date_format:Y-m-d H:i:s'],
+            'date' => ['required','date'],
             'slots' => ['required', 'integer'],
             'is_active' => ['required', 'boolean'],
         ];
